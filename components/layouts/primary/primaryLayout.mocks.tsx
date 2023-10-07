@@ -9,9 +9,15 @@ const primary: PrimaryLayoutProps = {
 				Lorem ipsum doler sit.
 			</p>
 		</>
-	)
+	),
+	user: {
+		id: '12345',
+		name: 'John Doe',
+		image: 'https://i.pravatar.cc/150',
+		email: 'jdoe@email.com',
+		emailVerified: false
+	}
 };
-
 
 const mockPrimaryLayoutProps = {
 	primary

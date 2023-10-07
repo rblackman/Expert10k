@@ -26,6 +26,13 @@
 
 	--animate-duration: 0.2s;
 	--text: var(--black);
+	--bg: var(--white);
+	--theme-primary: var(--dark-blue);
+	--theme-primary-text: var(--white);
+	--theme-secondary: var(--light-blue);
+	--theme-secondary-text: var(--white);
+	--theme-tertiary: var(--red);
+	--theme-tertiary-text: var(--white);
 }
 
 @media (prefers-reduced-motion) {
@@ -39,11 +46,15 @@
 	margin: 0;
 }
 
+html {
+	font-size: 10px;
+}
+
 body {
+	font-size: 2rem;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
 	line-height: 1.5;
 	color: #222;
 }

@@ -1,4 +1,3 @@
-import PrimaryLayout from '@components/layouts/primary/primaryLayout';
 import { Overpass } from 'next/font/google';
 import './globals.css';
 
@@ -13,9 +12,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang="en">
 			<body className={overpass.className}>
-				<PrimaryLayout>
-					{children}
-				</PrimaryLayout>
+				{children}
 			</body>
 		</html>
 	);

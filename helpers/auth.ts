@@ -15,7 +15,13 @@ export const authOptions: NextAuthOptions = {
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? throwError("Missing GOOGLE_CLIENT_SECRET"),
 		}),
 	],
-	adapter: PrismaAdapter(prisma)
+	adapter: PrismaAdapter(prisma),
+	pages: {
+		signIn: '/account/login',
+		signOut: '/account/logout',
+		newUser: '/account/new-user',
+		error: '/account/error'
+	}
 };
 
 // Use it in server contexts
