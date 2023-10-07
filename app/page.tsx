@@ -1,22 +1,25 @@
-import throwError from '@helpers/throwError';
+import prisma from '@db/client';
+import { authOptions } from '@helpers/auth';
+import { getServerSession } from "next-auth/next";
 import HomepageRecoilRoot from './homepageRecoilRoot';
-import UserInfo from './userInfo';
-
-const API_ENDPOINT =
-	process.env.API_ENDPOINT ??
-	throwError('API_ENDPOINT env variable not defined (should be "https://jsonplaceholder.typicode.com/todos/1")');
-
+import LoginButton from './loginButton';
 
 export default async function Home() {
-	const response = await fetch(API_ENDPOINT);
-	const user = await response.json();
+	const auth = await getServerSession(authOptions);
+	const skills = await prisma.skill.findMany();
+	const text = auth?.user ? `Hi ${auth.user.name}` : 'No Login';
 
 	return (
-		<HomepageRecoilRoot user={user}>
-			<>
-				<h1>Hello World</h1>
-				<UserInfo />
-			</>
+		<HomepageRecoilRoot>
+			<h1>{text}</h1>
+			{skills.map(({ id, name, hours }) => (
+				<div key={id}>
+					<h1>{name} ({id})</h1>
+					<p>{hours}</p>
+				</div>
+			)
+			)}
+			<LoginButton />
 		</HomepageRecoilRoot>
 	);
 }

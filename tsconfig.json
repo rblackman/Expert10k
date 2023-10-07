@@ -16,7 +16,8 @@
 			"@helpers/*": ["./helpers/*"],
 			"@hooks/*": ["./hooks/*"],
 			"@state/*": ["./state/*"],
-			"@t/*": ["./types/*"]
+			"@t/*": ["./types/*"],
+			"@db/*": ["./prisma/*"]
 		},
 		"plugins": [
 			{
