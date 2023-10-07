@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth/next";
 
 export default async function Home() {
 	const auth = await getServerSession(authOptions);
-	const prismaUser = await prisma.user.findUnique({ where: { email: auth?.user?.email ?? undefined } });
+	const prismaUser = await prisma.user.findUnique({ where: { email: auth?.user?.email ?? '' } });
 	const user = toUser(prismaUser);
 
 	if (!user) {
