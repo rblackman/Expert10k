@@ -36,5 +36,10 @@
 		"**/package-lock.json": true,
 		"**/tsconfig.tsbuildinfo": true,
 		"**/storybook-static": true
+	},
+	"files.associations": {
+		"*.env.*": "env",
+		".env": "env",
+		"**/.env.*": "env"
 	}
 }
