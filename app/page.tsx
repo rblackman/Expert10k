@@ -1,22 +1,18 @@
-import throwError from '@helpers/throwError';
+import prisma from '../lib/prisma';
 import HomepageRecoilRoot from './homepageRecoilRoot';
-import UserInfo from './userInfo';
-
-const API_ENDPOINT =
-	process.env.API_ENDPOINT ??
-	throwError('API_ENDPOINT env variable not defined (should be "https://jsonplaceholder.typicode.com/todos/1")');
-
 
 export default async function Home() {
-	const response = await fetch(API_ENDPOINT);
-	const user = await response.json();
+	const skills = await prisma.skill.findMany();
 
 	return (
-		<HomepageRecoilRoot user={user}>
-			<>
-				<h1>Hello World</h1>
-				<UserInfo />
-			</>
+		<HomepageRecoilRoot>
+			{skills.map(({ id, name, hours }) => (
+				<div key={id}>
+					<h1>{name} ({id})</h1>
+					<p>{hours}</p>
+				</div>
+			)
+			)}
 		</HomepageRecoilRoot>
 	);
 }
