@@ -17,7 +17,7 @@ export default function LoginButton({ id, name }: Props) {
 	}, [id]);
 
 	return (
-		<ButtonTemplate buttonType="button" callback={login}>
+		<ButtonTemplate buttonType="button" onClick={login}>
 			Login with {name}
 		</ButtonTemplate>
 	);

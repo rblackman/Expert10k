@@ -10,7 +10,7 @@ const buttonButton: ButtonTemplateProps = {
 	children: 'HTML Button Element',
 	buttonType: 'button',
 	variant: 'default',
-	callback: () => { }
+	onClick: () => { }
 };
 
 const mockButtonTemplateProps = {

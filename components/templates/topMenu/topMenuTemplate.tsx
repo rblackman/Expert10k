@@ -12,7 +12,7 @@ export default function TopMenuTemplate({ user: { name, image } }: TopMenuTempla
 	return (
 		<header id="top-menu" className={styles.menu}>
 			<div className={styles.innerMenu}>
-				<h1 className={styles.name}>{text}</h1>
+				<p className={styles.name}>{text}</p>
 				{image && <img className={styles.photo} src={image} alt={`Image of ${name}`} width={30} height={30} />}
 			</div>
 		</header>
