@@ -13,7 +13,7 @@ export default function AddForm() {
 	}, []);
 
 	const submitCallback = useCallback(async () => {
-		const response = await fetch('/api/activity/add', {
+		const response = await fetch('/api/activity', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

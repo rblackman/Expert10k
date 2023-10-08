@@ -25,5 +25,28 @@ async function POST(request: Request) {
 	return Response.json(record);
 }
 
-export { POST };
+async function DELETE(request: Request) {
+	const { id } = await request.json() as { id: string };
+	const auth = await getServerSession(authOptions);
+
+	const prismaUser = await prisma.user.findUnique({
+		where: { email: auth?.user?.email ?? '' },
+		include: { skills: true }
+	});
+
+	if (prismaUser === null) {
+		return Response.error();
+	}
+
+	const { id: skillId } = prismaUser.skills.filter(({ id }) => id === id)[0];
+
+	const updated = await prisma.skill.update({
+		where: { id: skillId },
+		data: { deleted: true }
+	})
+
+	return Response.json(updated);
+}
+
+export { DELETE, POST };
 

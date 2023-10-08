@@ -20,6 +20,7 @@ model Skill {
 	userId    String
 	name			String   @db.VarChar(255)
 	hours			Int
+	deleted   Boolean  @default(false)
 
 	user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 	practiceSessions PracticeSession[]

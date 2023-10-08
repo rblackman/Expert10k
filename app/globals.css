@@ -27,12 +27,21 @@
 	--animate-duration: 0.2s;
 	--text: var(--black);
 	--bg: var(--white);
-	--theme-primary: var(--dark-blue);
+	--theme-primary-r: var(--dark-blue-r);
+	--theme-primary-g: var(--dark-blue-g);
+	--theme-primary-b: var(--dark-blue-b);
+	--theme-primary: rgb(var(--theme-primary-r), var(--theme-primary-g), var(--theme-primary-b));
 	--theme-primary-text: var(--white);
-	--theme-secondary: var(--light-blue);
+	--theme-secondary-r: var(--light-blue-r);
+	--theme-secondary-g: var(--light-blue-g);
+	--theme-secondary-b: var(--light-blue-b);
+	--theme-secondary: rgb(var(--theme-secondary-r), var(--theme-secondary-g), var(--theme-secondary-b));
 	--theme-secondary-text: var(--white);
-	--theme-tertiary: var(--red);
-	--theme-tertiary-text: var(--white);
+	--theme-danger-r: var(--red-r);
+	--theme-danger-g: var(--red-g);
+	--theme-danger-b: var(--red-b);
+	--theme-danger: rgb(var(--theme-danger-r), var(--theme-danger-g), var(--theme-danger-b));
+	--theme-danger-text: var(--white);
 }
 
 @media (prefers-reduced-motion) {
