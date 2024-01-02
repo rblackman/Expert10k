@@ -13,6 +13,8 @@ interface Props {
 
 export default function AlreadyLoggedInRedirector({ user }: Props) {
 	const router = useRouter();
+
+
 	useEffect(() => {
 		if (user) {
 			router.push('/');

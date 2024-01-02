@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
@@ -16,24 +16,25 @@ datasource db {
 ///////////////////////////////////////////////////////
 
 model Skill {
-	id				Int      @id @default(autoincrement())
-	userId    String
-	name			String   @db.VarChar(255)
-	hours			Int
-	deleted   Boolean  @default(false)
+  id      Int     @id @default(autoincrement())
+  userId  String
+  name    String  @db.VarChar(255)
+  hours   Int
+  deleted Boolean @default(false)
 
-	user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-	practiceSessions PracticeSession[]
+  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  practiceSessions PracticeSession[]
 }
 
 model PracticeSession {
-	id				Int      @id @default(autoincrement())
-	skillId	  Int
-	startTime	DateTime
-	endTime		DateTime?
-	isDeleted	Boolean  @default(false)
+  id        Int       @id @default(autoincrement())
+  skillId   Int
+  startTime DateTime
+  endTime   DateTime?
+  duration  Int?
+  isDeleted Boolean   @default(false)
 
-	skill     Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  skill Skill @relation(fields: [skillId], references: [id], onDelete: Cascade)
 }
 
 ///////////////////////////////////////////////////////
@@ -41,18 +42,18 @@ model PracticeSession {
 ///////////////////////////////////////////////////////
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -75,7 +76,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-	skills				  Skill[]
+  skills        Skill[]
 }
 
 model VerificationToken {

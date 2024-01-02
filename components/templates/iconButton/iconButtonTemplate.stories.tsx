@@ -53,6 +53,16 @@ const meta = {
 			control: 'boolean',
 			defaultValue: false,
 		},
+		blank: {
+			name: 'Blank',
+			description: 'Whether the button should be blank.',
+			table: {
+				category: 'Appearance',
+				defaultValue: { summary: false },
+			},
+			control: 'boolean',
+			defaultValue: false,
+		},
 		disabled: {
 			name: 'Disabled',
 			description: 'Whether the button should be disabled.',

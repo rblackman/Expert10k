@@ -94,6 +94,20 @@
 	--button-bg: rgba(var(--button-r), var(--button-g), var(--button-b), 0.075);
 }
 
+.button.blank {
+	--button-color: var(--bg);
+	--button-contrast: var(--color);
+	--button-bg: transparent;
+	--button-text: rgb(var(--button-r), var(--button-g), var(--button-b));
+	--button-border: transparent;
+	--button-outline: transparent;
+	border-radius: 0;
+}
+
+.button:focus-visible {
+	--button-outline: rgb(var(--button-r), var(--button-g), var(--button-b));
+}
+
 @keyframes spin {
 	from {
 		transform: rotate(0deg);

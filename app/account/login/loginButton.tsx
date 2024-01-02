@@ -12,7 +12,7 @@ interface Props {
 export default function LoginButton({ id, name }: Props) {
 	const login = useCallback(() => {
 		signIn(id, {
-			callbackUrl: '/',
+			callbackUrl: '/'
 		});
 	}, [id]);
 

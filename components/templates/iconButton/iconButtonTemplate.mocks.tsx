@@ -9,7 +9,8 @@ const primary: IconButtonTemplateProps = {
 	iconSize: 'medium',
 	variant: 'primary',
 	outline: false,
-	disabled: false
+	disabled: false,
+	blank: false
 };
 
 const animated: IconButtonTemplateProps = {
@@ -20,7 +21,8 @@ const animated: IconButtonTemplateProps = {
 	iconSize: 'medium',
 	variant: 'danger',
 	outline: false,
-	disabled: false
+	disabled: false,
+	blank: false
 };
 
 
