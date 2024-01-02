@@ -1,4 +1,5 @@
 'use client';
+import { createSkill } from '@actions/skill';
 import ButtonTemplate from '@components/templates/button/buttonTemplate';
 import TextInputTemplate from '@components/templates/textInput/textInputTemplate';
 import { useRouter } from 'next/navigation';
@@ -13,20 +14,7 @@ export default function AddForm() {
 	}, []);
 
 	const submitCallback = useCallback(async () => {
-		const response = await fetch('/api/activity', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			cache: 'no-cache',
-			body: JSON.stringify({ name: value }),
-		});
-
-		if (!response.ok) {
-			throw new Error(response.statusText);
-		}
-
-		const { id } = (await response.json()) as { id: string };
+		const { id } = await createSkill(value);
 		router.push(`/activity/${id}`);
 	}, [router, value]);
 

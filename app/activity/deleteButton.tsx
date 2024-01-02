@@ -1,5 +1,6 @@
 'use client';
 
+import { deleteSkill } from '@actions/skill';
 import ButtonTemplate from '@components/templates/button/buttonTemplate';
 import { useCallback } from 'react';
 
@@ -10,20 +11,7 @@ interface Props {
 
 export default function DeleteButton({ id, deleteCallback }: Props) {
 	const onClick = useCallback(async () => {
-		const response = await fetch('/api/activity', {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			cache: 'no-cache',
-			body: JSON.stringify({ id }),
-		});
-
-		if (!response.ok) {
-			throw new Error(response.statusText);
-		}
-
-		(await response.json()) as { id: string };
+		await deleteSkill(id);
 		deleteCallback();
 	}, [deleteCallback, id]);
 
