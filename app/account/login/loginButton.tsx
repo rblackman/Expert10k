@@ -1,8 +1,8 @@
 'use client';
 
-import ButtonTemplate from "@components/templates/button/buttonTemplate";
-import { signIn } from "next-auth/react";
-import { useCallback } from "react";
+import ButtonTemplate from '@components/templates/button/buttonTemplate';
+import { signIn } from 'next-auth/react';
+import { useCallback } from 'react';
 
 interface Props {
 	id: string;
@@ -12,7 +12,7 @@ interface Props {
 export default function LoginButton({ id, name }: Props) {
 	const login = useCallback(() => {
 		signIn(id, {
-			callbackUrl: '/'
+			callbackUrl: '/',
 		});
 	}, [id]);
 

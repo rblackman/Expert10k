@@ -41,7 +41,7 @@ const meta = {
 				defaultValue: { summary: false },
 			},
 			control: 'boolean',
-			defaultValue: false
+			defaultValue: false,
 		},
 		outline: {
 			name: 'Outline',
@@ -93,5 +93,5 @@ const animatedButtonArgs: IconButtonTemplateProps = {
 };
 
 export const AnimatedButton: Story = {
-	args: animatedButtonArgs
-}
+	args: animatedButtonArgs,
+};

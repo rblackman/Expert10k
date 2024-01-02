@@ -7,21 +7,16 @@ export interface ActivityListingTemplateProps {
 	children: ReactNode;
 }
 
-
 export default function ActivityListingTemplate({ name, children, time }: ActivityListingTemplateProps) {
 	return (
 		<div role="listitem" className={styles.activity}>
 			<p className={styles.name}>{name}</p>
 			<p className={styles.time}>
-				<Suspense fallback={'loading...'}>
-					{time}
-				</Suspense>
+				<Suspense fallback={'loading...'}>{time}</Suspense>
 			</p>
 			<div className={styles.action}>
-				<Suspense fallback={''}>
-					{children}
-				</Suspense>
+				<Suspense fallback={''}>{children}</Suspense>
 			</div>
 		</div>
-	)
+	);
 }

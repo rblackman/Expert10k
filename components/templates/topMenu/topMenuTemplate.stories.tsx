@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TopMenuTemplate, { TopMenuTemplateProps } from "./topMenuTemplate";
+import TopMenuTemplate, { TopMenuTemplateProps } from './topMenuTemplate';
 import mockTopMenuTemplateProps from './topMenuTemplate.mocks';
 
 const meta = {
@@ -9,7 +9,6 @@ const meta = {
 } satisfies Meta<typeof TopMenuTemplate>;
 
 export default meta;
-
 
 type Story = StoryObj<typeof meta>;
 

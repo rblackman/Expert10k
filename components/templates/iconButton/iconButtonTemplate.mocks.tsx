@@ -4,31 +4,30 @@ import { IconButtonTemplateProps } from './iconButtonTemplate';
 const primary: IconButtonTemplateProps = {
 	children: <MdAdd />,
 	label: 'Add',
-	onClick: () => { },
+	onClick: () => {},
 	animate: false,
 	iconSize: 'medium',
 	variant: 'primary',
 	outline: false,
 	disabled: false,
-	blank: false
+	blank: false,
 };
 
 const animated: IconButtonTemplateProps = {
 	children: <MdLoop />,
 	label: 'Deleting',
-	onClick: () => { },
+	onClick: () => {},
 	animate: true,
 	iconSize: 'medium',
 	variant: 'danger',
 	outline: false,
 	disabled: false,
-	blank: false
+	blank: false,
 };
-
 
 const mockIconButtonTemplateProps = {
 	primary,
-	animated
+	animated,
 };
 
 export default mockIconButtonTemplateProps;

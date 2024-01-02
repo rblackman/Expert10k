@@ -5,9 +5,7 @@ const primary: PrimaryLayoutProps = {
 		<>
 			<h1>Hello World! (h1)</h1>
 			<h2>Sub Heading! (h2)</h2>
-			<p>
-				Lorem ipsum doler sit.
-			</p>
+			<p>Lorem ipsum doler sit.</p>
 		</>
 	),
 	user: {
@@ -15,12 +13,12 @@ const primary: PrimaryLayoutProps = {
 		name: 'John Doe',
 		image: 'https://i.pravatar.cc/150',
 		email: 'jdoe@email.com',
-		emailVerified: false
-	}
+		emailVerified: false,
+	},
 };
 
 const mockPrimaryLayoutProps = {
-	primary
+	primary,
 };
 
 export default mockPrimaryLayoutProps;

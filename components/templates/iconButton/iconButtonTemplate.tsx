@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { ReactNode } from "react";
+import clsx from 'clsx';
+import { ReactNode } from 'react';
 import styles from './iconButtonTemplate.module.css';
 
 export interface BaseButtonTemplateProps {
@@ -42,12 +42,7 @@ export default function IconButtonTemplate(props: IconButtonTemplateProps) {
 	if (isLinkButton(props)) {
 		const { href } = props;
 		return (
-			<a
-				href={href}
-				className={buttonClassName}
-				aria-label={label}
-				title={label}
-			>
+			<a href={href} className={buttonClassName} aria-label={label} title={label}>
 				{children}
 			</a>
 		);
@@ -55,13 +50,7 @@ export default function IconButtonTemplate(props: IconButtonTemplateProps) {
 
 	const { onClick } = props;
 	return (
-		<button
-			className={buttonClassName}
-			onClick={onClick}
-			disabled={disabled ?? false}
-			aria-label={label}
-			title={label}
-		>
+		<button className={buttonClassName} onClick={onClick} disabled={disabled ?? false} aria-label={label} title={label}>
 			{children}
 		</button>
 	);

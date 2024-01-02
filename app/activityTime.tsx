@@ -10,12 +10,12 @@ export default async function ActivityTime({ id }: Props) {
 	const sessionTotal = await prisma.practiceSession.groupBy({
 		by: ['skillId'],
 		_sum: {
-			duration: true
+			duration: true,
 		},
 		where: {
 			skillId: id,
-			duration: { not: null }
-		}
+			duration: { not: null },
+		},
 	});
 
 	if (sessionTotal.length === 0) {

@@ -8,7 +8,7 @@ const user: User = {
 	name: 'John Doe',
 	image: 'https://i.pravatar.cc/150',
 	email: 'jdoe@email.com',
-	emailVerified: false
+	emailVerified: false,
 };
 
 const name = shortenName(user.name);
@@ -36,12 +36,9 @@ describe('Top Menu Template Tests', () => {
 		expect(image).toHaveAttribute('src', user.image);
 	});
 
-	it('Doesn\'t render empty image', () => {
+	it("Doesn't render empty image", () => {
 		render(<TopMenu user={{ ...user, image: null }} />);
 		const image = screen.queryByRole('img');
 		expect(image).not.toBeInTheDocument();
 	});
-
 });
-
-

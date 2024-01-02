@@ -10,37 +10,36 @@ const meta = {
 			name: 'ID',
 			description: 'HTML ID attribute',
 			control: {
-				type: 'text'
-			}
+				type: 'text',
+			},
 		},
 		label: {
 			name: 'Label',
 			description: 'Label text',
 			control: {
-				type: 'text'
-			}
+				type: 'text',
+			},
 		},
 		value: {
 			name: 'Value',
 			description: 'Input value',
 			control: {
-				type: 'text'
-			}
+				type: 'text',
+			},
 		},
 		onChange: {
 			table: {
-				disable: true
-			}
+				disable: true,
+			},
 		},
 		required: {
 			name: 'Required',
 			description: 'Required input',
 			control: {
 				type: 'boolean',
-				defaultValue: true
-			}
-		}
-
+				defaultValue: true,
+			},
+		},
 	},
 } satisfies Meta<typeof TextInput>;
 
@@ -53,5 +52,5 @@ const args: TextInputTemplateProps = {
 };
 
 export const TextInputTemplate: Story = {
-	args
+	args,
 };

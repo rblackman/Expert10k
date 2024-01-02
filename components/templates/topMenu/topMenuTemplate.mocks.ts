@@ -1,4 +1,4 @@
-import { TopMenuTemplateProps } from "./topMenuTemplate";
+import { TopMenuTemplateProps } from './topMenuTemplate';
 
 const primary: TopMenuTemplateProps = {
 	user: {
@@ -6,12 +6,12 @@ const primary: TopMenuTemplateProps = {
 		name: 'John Doe',
 		image: 'https://i.pravatar.cc/150',
 		email: 'jdoe@email.com',
-		emailVerified: false
-	}
+		emailVerified: false,
+	},
 };
 
 const mockLinkTemplateProps = {
-	primary
+	primary,
 };
 
 export default mockLinkTemplateProps;

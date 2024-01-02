@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import User from "@t/user";
+import User from '@t/user';
 import { MdLogout } from 'react-icons/md';
-import IconButtonTemplate from "../iconButton/iconButtonTemplate";
+import IconButtonTemplate from '../iconButton/iconButtonTemplate';
 import styles from './topMenuTemplate.module.css';
 
 export interface TopMenuTemplateProps {

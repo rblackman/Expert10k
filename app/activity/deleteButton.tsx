@@ -1,7 +1,7 @@
 'use client';
 
-import ButtonTemplate from "@components/templates/button/buttonTemplate";
-import { useCallback } from "react";
+import ButtonTemplate from '@components/templates/button/buttonTemplate';
+import { useCallback } from 'react';
 
 interface Props {
 	id: number;
@@ -23,12 +23,13 @@ export default function DeleteButton({ id, deleteCallback }: Props) {
 			throw new Error(response.statusText);
 		}
 
-		await response.json() as { id: string };
+		(await response.json()) as { id: string };
 		deleteCallback();
 	}, [deleteCallback, id]);
 
 	return (
-		<ButtonTemplate buttonType="button" onClick={onClick} variant="red" outline>Delete</ButtonTemplate>
+		<ButtonTemplate buttonType="button" onClick={onClick} variant="red" outline>
+			Delete
+		</ButtonTemplate>
 	);
-
 }

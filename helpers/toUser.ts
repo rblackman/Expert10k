@@ -1,13 +1,14 @@
-import User from "@t/user";
+import User from '@t/user';
 
-export default function toUser(user: {
-	id: string;
-	name: string | null;
-	email: string | null;
-	emailVerified: Date | null;
-	image: string | null;
-} | null): User | null {
-
+export default function toUser(
+	user: {
+		id: string;
+		name: string | null;
+		email: string | null;
+		emailVerified: Date | null;
+		image: string | null;
+	} | null,
+): User | null {
 	if (!user) {
 		return null;
 	}

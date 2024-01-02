@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useState } from "react";
-import DeleteButton from "./deleteButton";
+import { useCallback, useState } from 'react';
+import DeleteButton from './deleteButton';
 
 interface Props {
 	id: number;
@@ -19,9 +19,7 @@ export default function Skill({ id, name, hours }: Props) {
 
 	return (
 		<li>
-			<span>{name}</span>
-			{' '}|{' '}
-			<span>{hours}</span>
+			<span>{name}</span> | <span>{hours}</span>
 			<DeleteButton id={id} deleteCallback={deleteCallback} />
 		</li>
 	);

@@ -11,17 +11,28 @@ export interface TextInputTemplateProps {
 	required?: true;
 }
 
-export default function TextInputTemplate({ id, label, value, onChange: changeCallback, ...props }: TextInputTemplateProps) {
-	const onChange = useCallback(({ target: { value } }: ChangeEvent<HTMLInputElement>) => changeCallback(value), [changeCallback]);
+export default function TextInputTemplate({
+	id,
+	label,
+	value,
+	onChange: changeCallback,
+	...props
+}: TextInputTemplateProps) {
+	const onChange = useCallback(
+		({ target: { value } }: ChangeEvent<HTMLInputElement>) => changeCallback(value),
+		[changeCallback],
+	);
 
 	return (
 		<div className={styles.wrapper}>
-			<label htmlFor={id} className={styles.label}>{label}</label>
+			<label htmlFor={id} className={styles.label}>
+				{label}
+			</label>
 			<input id={id} type="text" required value={value} onChange={onChange} {...props} />
 		</div>
 	);
 }
 
 TextInputTemplate.defaultProps = {
-	required: undefined
+	required: undefined,
 };

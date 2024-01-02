@@ -1,6 +1,6 @@
 import ActivityListingTemplate from '@components/templates/activityListing/activityListingTemplate';
 import prisma from '@db/client';
-import User from "@t/user";
+import User from '@t/user';
 import ActivityAction from './activityAction';
 import ActivityTime from './activityTime';
 
@@ -12,23 +12,21 @@ export default async function RecentActivities({ user: { id } }: Props) {
 	const queryResult = await prisma.practiceSession.findMany({
 		where: {
 			skill: {
-				userId: id
-			}
+				userId: id,
+			},
 		},
 		select: {
-			skill: true
+			skill: true,
 		},
 		orderBy: {
-			startTime: 'desc'
+			startTime: 'desc',
 		},
-		take: 5
+		take: 5,
 	});
 	const skills = queryResult.map(({ skill }) => skill);
 
 	if (skills.length === 0) {
-		return (
-			<p>No recent activities, noob</p>
-		);
+		return <p>No recent activities, noob</p>;
 	}
 
 	return (

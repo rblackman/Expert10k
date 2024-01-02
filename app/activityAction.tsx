@@ -10,8 +10,8 @@ export default async function ActivityAction({ id }: Props) {
 	const openSessions = await prisma.practiceSession.findFirst({
 		where: {
 			skillId: id,
-			endTime: null
-		}
+			endTime: null,
+		},
 	});
 
 	if (openSessions) {

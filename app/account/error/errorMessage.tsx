@@ -1,10 +1,9 @@
 'use client';
 
-import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
 
 export default function ErrorMessage() {
-
 	const query = useSearchParams();
 	const error = query.get('error');
 	const errorMessage = useMemo(() => {

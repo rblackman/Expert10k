@@ -1,4 +1,4 @@
-import LoginButton from "./loginButton";
+import LoginButton from './loginButton';
 
 interface Props {
 	providers: {
@@ -15,5 +15,4 @@ export default function LoginButtons({ providers }: Props) {
 			))}
 		</div>
 	);
-
 }
