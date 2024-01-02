@@ -25,7 +25,25 @@
 	--white: rgb(var(--white-r), var(--white-g), var(--white-b));
 
 	--animate-duration: 0.2s;
+
 	--text: var(--black);
+	--bg: var(--white);
+
+	--theme-primary-r: var(--dark-blue-r);
+	--theme-primary-g: var(--dark-blue-g);
+	--theme-primary-b: var(--dark-blue-b);
+	--theme-primary: rgb(var(--theme-primary-r), var(--theme-primary-g), var(--theme-primary-b));
+	--theme-primary-text: var(--white);
+	--theme-secondary-r: var(--light-blue-r);
+	--theme-secondary-g: var(--light-blue-g);
+	--theme-secondary-b: var(--light-blue-b);
+	--theme-secondary: rgb(var(--theme-secondary-r), var(--theme-secondary-g), var(--theme-secondary-b));
+	--theme-secondary-text: var(--white);
+	--theme-danger-r: var(--red-r);
+	--theme-danger-g: var(--red-g);
+	--theme-danger-b: var(--red-b);
+	--theme-danger: rgb(var(--theme-danger-r), var(--theme-danger-g), var(--theme-danger-b));
+	--theme-danger-text: var(--white);
 }
 
 @media (prefers-reduced-motion) {
@@ -39,11 +57,15 @@
 	margin: 0;
 }
 
+html {
+	font-size: 10px;
+}
+
 body {
+	font-size: 2rem;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
 	line-height: 1.5;
 	color: #222;
 }
@@ -95,4 +117,16 @@ article * + * {
 a {
 	color: navy;
 	text-underline-offset: 0.15em;
+}
+
+.sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }

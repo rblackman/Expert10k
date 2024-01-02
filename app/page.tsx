@@ -1,25 +1,25 @@
+import PrimaryLayout from '@components/layouts/primary/primaryLayout';
+import LoginRedirector from '@components/loginRedirector';
 import prisma from '@db/client';
 import { authOptions } from '@helpers/auth';
-import { getServerSession } from "next-auth/next";
-import HomepageRecoilRoot from './homepageRecoilRoot';
-import LoginButton from './loginButton';
+import toUser from '@helpers/toUser';
+import { getServerSession } from 'next-auth/next';
+import RecentActivities from './recentActivities';
 
 export default async function Home() {
 	const auth = await getServerSession(authOptions);
-	const skills = await prisma.skill.findMany();
-	const text = auth?.user ? `Hi ${auth.user.name}` : 'No Login';
+	const prismaUser = await prisma.user.findUnique({ where: { email: auth?.user?.email ?? '' } });
+	const user = toUser(prismaUser);
+
+	if (!user) {
+		return <LoginRedirector />;
+	}
 
 	return (
-		<HomepageRecoilRoot>
-			<h1>{text}</h1>
-			{skills.map(({ id, name, hours }) => (
-				<div key={id}>
-					<h1>{name} ({id})</h1>
-					<p>{hours}</p>
-				</div>
-			)
-			)}
-			<LoginButton />
-		</HomepageRecoilRoot>
+		<PrimaryLayout user={user}>
+			<h1 className="sr">Home</h1>
+			<h2>Recent Activities</h2>
+			<RecentActivities user={user} />
+		</PrimaryLayout>
 	);
 }

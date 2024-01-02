@@ -1,6 +1,9 @@
-export default interface User {
-	userId: number;
-	id: number;
-	title: string;
-	completed: boolean;
-}
+type User = {
+	id: string;
+	name: string | null;
+	email: string | null;
+	emailVerified: boolean;
+	image: string | null;
+};
+
+export default User;

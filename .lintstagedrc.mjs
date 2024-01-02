@@ -5,6 +5,7 @@ const buildEslintCommand = (filenames) => [
 ];
 
 const config = {
+	'**/schema.prisma': () => 'npx prisma format',
 	'**/*.(ts|tsx)': () => 'npx tsc --noEmit',
 	'*.{js,jsx,ts,tsx}': [buildEslintCommand],
 	'**/*.(md|json)': (filenames) => `npx prettier --write ${filenames.join(' ')}`,

@@ -15,7 +15,7 @@ export interface LinkButtonTemplateProps extends BaseButtonTemplateProps {
 
 export interface ButtonButtonTemplateProps extends BaseButtonTemplateProps {
 	buttonType: 'button' | 'submit' | 'reset';
-	callback: () => void;
+	onClick: () => void;
 }
 
 export type ButtonTemplateProps = LinkButtonTemplateProps | ButtonButtonTemplateProps;
@@ -40,9 +40,9 @@ export default function ButtonTemplate(props: ButtonTemplateProps): ReactNode {
 	}
 
 	// is <button>
-	const { buttonType, callback, ...buttonProps } = props;
+	const { buttonType, onClick, ...buttonProps } = props;
 	return (
-		<button type={buttonType} {...buttonProps} className={classes} onClick={callback}>
+		<button type={buttonType} {...buttonProps} className={classes} onClick={onClick}>
 			{children}
 		</button>
 	);

@@ -1,0 +1,37 @@
+.activity {
+	display: grid;
+	grid-template-columns: 1fr min-content;
+	grid-template-rows: min-content min-content;
+	grid-template-areas: 'name action' 'time action';
+	grid-gap: 1rem;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0.8rem 0.4rem;
+}
+
+.activity:nth-of-type(even) {
+	background-color: rgba(var(--theme-secondary-r), var(--theme-secondary-g), var(--theme-secondary-b), 0.05);
+}
+
+.activity + .activity {
+	border-top: 0.1rem solid rgba(var(--theme-secondary-r), var(--theme-secondary-g), var(--theme-secondary-b), 0.1);
+}
+
+.name,
+.time,
+.action {
+	margin: 0;
+	line-height: 1;
+}
+
+.name {
+	grid-area: name;
+}
+
+.time {
+	grid-area: time;
+}
+
+.action {
+	grid-area: action;
+}

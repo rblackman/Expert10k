@@ -6,7 +6,12 @@ describe('Button Template Tests', () => {
 	it('Renders children', () => {
 		const text = 'Hello World';
 
-		render(<Button buttonType="button" callback={() => { }}> {text}</Button >);
+		render(
+			<Button buttonType="button" onClick={() => {}}>
+				{' '}
+				{text}
+			</Button>,
+		);
 
 		const button = screen.getByText(text);
 
@@ -17,7 +22,11 @@ describe('Button Template Tests', () => {
 	it('Renders buttonType as button element', () => {
 		const text = 'Hello World';
 
-		render(<Button buttonType="button" callback={() => { }}>{text}</Button>);
+		render(
+			<Button buttonType="button" onClick={() => {}}>
+				{text}
+			</Button>,
+		);
 
 		const button = screen.getByRole('button');
 
@@ -27,13 +36,17 @@ describe('Button Template Tests', () => {
 
 	it('Calls button click', () => {
 		const text = 'Hello World';
-		const callback = jest.fn();
-		render(<Button buttonType="button" callback={callback}>{text}</Button>);
+		const onClick = jest.fn();
+		render(
+			<Button buttonType="button" onClick={onClick}>
+				{text}
+			</Button>,
+		);
 
 		const button = screen.getByRole('button');
 		button.click();
 
-		expect(callback).toHaveBeenCalledTimes(1);
+		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 
 	it('Renders href link', () => {
