@@ -1,4 +1,4 @@
-import TopMenu from '@components/templates/topMenu/topMenuTemplate';
+import TopMenu, { shortenName } from '@components/templates/topMenu/topMenuTemplate';
 import User from '@t/user';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -11,11 +11,13 @@ const user: User = {
 	emailVerified: false
 };
 
+const name = shortenName(user.name);
+
 describe('Top Menu Template Tests', () => {
 	it('Renders', () => {
 		render(<TopMenu user={user} />);
 
-		const hi = screen.getByText(`Hi, ${user.name}!`);
+		const hi = screen.getByText(name);
 		const menu = hi.closest('header');
 
 		expect(menu).toBeInTheDocument();

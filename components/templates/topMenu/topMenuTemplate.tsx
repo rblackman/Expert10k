@@ -8,8 +8,12 @@ export interface TopMenuTemplateProps {
 	user: User;
 }
 
+export function shortenName(name: string | null): string {
+	return name ? `Hi, ${name.split(' ')[0]}!` : 'Hi there!';
+}
+
 export default function TopMenuTemplate({ user: { name, image } }: TopMenuTemplateProps) {
-	const text = name ? `Hi, ${name.split(' ')[0]}!` : 'Hi there!';
+	const text = shortenName(name);
 
 	return (
 		<header id="top-menu" className={styles.menu}>
